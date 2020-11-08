@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Model.Data
 {
-    public class Grid<T>
+    internal class Grid<T>
     {
         private readonly T[][] grid;
 
@@ -92,7 +92,7 @@ namespace Model.Data
         }        
     }
 
-    public class GridSlice<T>
+    internal class GridSlice<T>
     {
         private readonly Grid<T> grid;
 

@@ -24,12 +24,12 @@ namespace Model.Gomoku
         /// </summary>
         public abstract Stone Other { get; }
 
-        public class WhiteStone : Stone
+        private class WhiteStone : Stone
         {
             public override Stone Other => Stone.BLACK;
         }
 
-        public class BlackStone : Stone
+        private class BlackStone : Stone
         {
             public override Stone Other => Stone.WHITE;
         }

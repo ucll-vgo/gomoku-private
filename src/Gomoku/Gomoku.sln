@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModel", "ViewModel\ViewModel.csproj", "{CF5970A9-D9E2-4614-9FD3-E4EC83C4869C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "View", "View\View.csproj", "{ACD2EB86-D9DD-49E5-B6DB-F076005FFF4F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CF5970A9-D9E2-4614-9FD3-E4EC83C4869C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF5970A9-D9E2-4614-9FD3-E4EC83C4869C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF5970A9-D9E2-4614-9FD3-E4EC83C4869C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACD2EB86-D9DD-49E5-B6DB-F076005FFF4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACD2EB86-D9DD-49E5-B6DB-F076005FFF4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACD2EB86-D9DD-49E5-B6DB-F076005FFF4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACD2EB86-D9DD-49E5-B6DB-F076005FFF4F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

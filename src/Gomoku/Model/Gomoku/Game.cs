@@ -86,12 +86,27 @@ namespace Model.Gomoku
         public const int MaximumBoardSize = GameBoard.MaximumSize;
     }
 
+    /// <summary>
+    /// Represents a game board.
+    /// </summary>
     public interface IGameBoard
     {
+        /// <summary>
+        /// Width of the board.
+        /// </summary>
         int Width { get; }
 
+        /// <summary>
+        /// Height of the board.
+        /// </summary>
         int Height { get; }
 
+        /// <summary>
+        /// Returns the stone at <paramref name="position"/>.
+        /// Usage: <code>board[pos]</code>.
+        /// </summary>
+        /// <param name="position">Position of the stone to return.</param>
+        /// <returns>Stone (or null) at <paramref name="position"/></returns>
         Stone? this[Vector2D position] { get; }
     }
 

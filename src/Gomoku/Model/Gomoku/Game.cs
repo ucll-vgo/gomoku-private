@@ -6,31 +6,83 @@ using System.Text;
 
 namespace Model.Gomoku
 {
+    /// <summary>
+    /// Represents a game of Gomoku.
+    /// Objects of this type are immutable.
+    /// </summary>
     public interface IGame
     {
+        /// <summary>
+        /// Static factory function to create new games.
+        /// </summary>
+        /// <param name="boardSize">Size of the board. See <see cref="MinimumBoardSize"/> and <see cref="MaximumBoardSize"/> for the allowed range.</param>
+        /// <param name="capturing">Whether capturing stones is allowed.</param>
+        /// <returns></returns>
         public static IGame Create(int boardSize, bool capturing)
         {
             return new InProgressGame(boardSize, capturing);
         }
 
+        /// <summary>
+        /// Current player.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if the game is over.</exception>
         Stone CurrentPlayer { get; }
 
+        /// <summary>
+        /// Winner of the game.
+        /// Has the value null in case of a tie.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if the game is not yet over.</exception>
         Stone? Winner { get; }
 
+        /// <summary>
+        /// Game board.
+        /// </summary>
         IGameBoard Board { get; }
 
+        /// <summary>
+        /// Returns true if the game is over, false otherwise.
+        /// </summary>
         bool IsGameOver { get; }
 
+        /// <summary>
+        /// Adds a stone to the board.
+        /// The color is determined by <see cref="CurrentPlayer" />.
+        /// </summary>
+        /// <param name="position">Where to place the new stone.</param>
+        /// <returns>A new game object with the updated board.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the game is over.</exception>
         IGame PutStone(Vector2D position);
 
+        /// <summary>
+        /// Checks if placing a stone on <paramref name="position" /> is possible.
+        /// </summary>
+        /// <param name="position">Where to place the new stone.</param>
+        /// <returns>True if the stone can be placed at <paramref name="position"/>, false otherwise.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if the game is over.</exception>
         bool IsValidMove(Vector2D position);
 
+        /// <summary>
+        /// Returns the positions that have been captured by the previous move.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if the game is over.</exception>
         ISet<Vector2D> CapturedPositions { get; }
 
+        /// <summary>
+        /// Returns the positions that make up the winning sequence of five.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if the game is not yet over.</exception>
         ISet<Vector2D> WinningPositions { get; }
 
+        /// <summary>
+        /// Minimum board size.
+        /// </summary>
         public const int MinimumBoardSize = GameBoard.MinimumSize;
 
+        /// <summary>
+        /// Maximum board size.
+        /// </summary>
         public const int MaximumBoardSize = GameBoard.MaximumSize;
     }
 
